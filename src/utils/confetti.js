@@ -10,6 +10,8 @@ export function triggerConfetti(options = {}) {
     duration = 2800,
   } = options;
 
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
   let canvas = document.getElementById('celebration-confetti-canvas');
   if (!canvas) {
     canvas = document.createElement('canvas');

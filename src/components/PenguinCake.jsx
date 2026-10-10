@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { playBlowCandle, playPop } from '../utils/sound';
 import { triggerConfetti } from '../utils/confetti';

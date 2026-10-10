@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import PenguinCake from './PenguinCake';
 import DucklingParty from './DucklingParty';
@@ -17,7 +19,7 @@ export default function Stage4BirthdayCake({ onOpenScrapbook }) {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[95vh] py-4 px-4 overflow-hidden select-none animate-fadeIn">
+    <div className="relative flex flex-col items-center justify-center min-h-[90vh]  px-4 overflow-hidden select-none animate-fadeIn">
       {/* Top Left: Cute Duckling in Party Hat */}
       <div className="absolute top-4 left-4 sm:top-8 sm:left-12 z-10">
         <DucklingParty />
@@ -117,29 +119,33 @@ export default function Stage4BirthdayCake({ onOpenScrapbook }) {
 
           {/* Heart Shape SVG Badge */}
           <div className="relative w-18 h-18 sm:w-22 sm:h-22 filter drop-shadow-[0_8px_16px_rgba(235,59,90,0.4)]">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <defs>
-                <linearGradient id="candyHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff758f" />
-                  <stop offset="100%" stopColor="#ff4d6d" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 50,88 C 20,62 5,45 5,26 C 5,12 16,3 30,3 C 40,3 47,8 50,15 C 53,8 60,3 70,3 C 84,3 95,12 95,26 C 95,45 80,62 50,88 Z"
-                fill="url(#candyHeartGrad)"
-                stroke="#ffffff"
-                strokeWidth="3.5"
-              />
-              {/* Highlight curve */}
-              <path
-                d="M 20,18 C 25,10 35,9 42,12"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                opacity="0.75"
-              />
-            </svg>
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+  <defs>
+    <linearGradient id="candyHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#ff758f" />
+      <stop offset="100%" stopColor="#ff4d6d" />
+    </linearGradient>
+  </defs>
+  
+  {/* Wrapper group to scale down by 50% and keep it centered */}
+  <g transform="translate(25, 25) scale(0.5)">
+    <path
+      d="M 50,88 C 20,62 5,45 5,26 C 5,12 16,3 30,3 C 40,3 47,8 50,15 C 53,8 60,3 70,3 C 84,3 95,12 95,26 C 95,45 80,62 50,88 Z"
+      fill="url(#candyHeartGrad)"
+      stroke="#ffffff"
+      strokeWidth="3.5"
+    />
+    {/* Highlight curve */}
+    <path
+      d="M 20,18 C 25,10 35,9 42,12"
+      fill="none"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      opacity="0.75"
+    />
+  </g>
+</svg>
             {/* Text inside Heart */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-fredoka font-bold text-xs sm:text-sm tracking-widest uppercase pointer-events-none pb-1">
               <span>CLICK</span>

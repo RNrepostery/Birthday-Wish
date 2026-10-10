@@ -4,8 +4,8 @@ export default function PenguinCrying() {
   return (
     <div className="relative flex flex-col items-center justify-center select-none">
       <svg
-        viewBox="-160 -160 320 320"
-        className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 overflow-visible filter drop-shadow-sm"
+        viewBox="-130 -115 260 230"
+        className="w-72 h-56 sm:w-80 sm:h-64 md:w-96 md:h-76 overflow-visible filter drop-shadow-sm"
       >
         <defs>
           <linearGradient id="cryBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -113,7 +113,7 @@ export default function PenguinCrying() {
           />
         </g>
 
-        {/* Animated Flying Teardrops spraying into air (Image 2 shows 3-5 blue drops popping) */}
+        {/* Animated Flying Teardrops spraying into air */}
         <g className="flying-tears">
           {/* Top splash drop 1 */}
           <g className="teardrop-pop drop-1">

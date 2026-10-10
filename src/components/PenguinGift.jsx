@@ -13,7 +13,7 @@ export default function PenguinGift({ index = 1, isPrimary = false, onClick }) {
 
       <svg
         viewBox="-110 -130 220 260"
-        className="w-52 h-60 sm:w-60 sm:h-68 md:w-64 md:h-72 overflow-visible filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-300"
+        className="w-52 h-32 sm:w-60 sm:h-[218px] md:w-64 md:h-[230px] overflow-visible filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-300"
       >
         <defs>
           <linearGradient id={`giftBodyGrad-${index}`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -44,8 +44,11 @@ export default function PenguinGift({ index = 1, isPrimary = false, onClick }) {
           className="group-hover:scale-90 transition-transform duration-300 origin-center"
         />
 
-        {/* Penguin with gentle idle sway */}
-        <g className={`penguin-gift-sway sway-${index}`}>
+        {/* Penguin with gentle idle sway and 30% reduced height */}
+        <g 
+          className={`penguin-gift-sway sway-${index}`}
+          transform="translate(0, 112) scale(1, 0.7) translate(0, -112)"
+        >
           {/* Feet */}
           <ellipse cx="-24" cy="112" rx="13" ry="6" fill="#3a2a1f" />
           <ellipse cx="24" cy="112" rx="13" ry="6" fill="#3a2a1f" />

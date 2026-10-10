@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Mali:ital,wght@0,400;0,600;0,700;1,400&family=Patrick+Hand&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 346.8 77.2% 49.8%;
+    --radius: 0.75rem;
+
+    --font-fredoka: 'Fredoka', cursive, sans-serif;
+    --font-mali: 'Mali', cursive, sans-serif;
+    --font-caveat: 'Caveat', cursive, sans-serif;
+    --font-patrick: 'Patrick Hand', cursive, sans-serif;
+    --font-outfit: 'Outfit', sans-serif;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 346.8 77.2% 49.8%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-mali), cursive, sans-serif;
+  background: radial-gradient(circle at 50% 35%, #fffdfa 0%, #fbeeed 50%, #f7dfdf 100%);
+  color: #2d3436;
+  overflow-x: hidden;
+}
+
+/* Font classes */
+.font-fredoka { font-family: var(--font-fredoka); }
+.font-mali { font-family: var(--font-mali); }
+.font-caveat { font-family: var(--font-caveat); }
+.font-patrick { font-family: var(--font-patrick); }
+.font-outfit { font-family: var(--font-outfit); }
+
+/* Scrapbook pink gingham / plaid pattern matching Image 5 */
+.scrapbook-background {
+  background-color: #fff0f3;
+  background-image: 
+    linear-gradient(rgba(255, 182, 193, 0.35) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 182, 193, 0.35) 2px, transparent 2px),
+    linear-gradient(rgba(255, 192, 203, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 192, 203, 0.18) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+}
+
+/* Notebook lined paper styling matching Image 5's journal */
+.notebook-ruled-page {
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    #e8edfc 31px,
+    #e8edfc 32px
+  );
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.02);
+}
+
+/* Floating animation for Penguin */
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1deg);
+  }
+}
+
+.floating-penguin-body {
+  animation: floatBob 2.6s ease-in-out infinite;
+}
+
+/* Ground shadow pulse */
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.45;
+  }
+}
+
+.penguin-ground-shadow {
+  transform-origin: center;
+  animation: shadowPulse 2.6s ease-in-out infinite;
+}
+
+/* Wing spread animation */
+@keyframes wingFlapLeft {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+@keyframes wingFlapRight {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+.left-wing-spread {
+  transform-origin: -38px 10px;
+  animation: wingFlapLeft 1.8s ease-in-out infinite;
+}
+
+.right-wing-spread {
+  transform-origin: 38px 10px;
+  animation: wingFlapRight 1.8s ease-in-out infinite;
+}
+
+/* Floating Hearts bobbing */
+@keyframes floatHeart {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+  }
+}
+
+.animated-floating-heart {
+  animation: floatHeart 2.2s ease-in-out infinite alternate;
+}
+
+/* Sparkle glow */
+@keyframes sparkleGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animated-sparkle {
+  animation: sparkleGlow 1.6s ease-in-out infinite alternate;
+}
+
+/* Crying Sobbing Animation */
+@keyframes sobWobble {
+  0%, 100% {
+    transform: rotate(-18deg) translate(0, 0);
+  }
+  25% {
+    transform: rotate(-19deg) translate(-2px, 1px);
+  }
+  50% {
+    transform: rotate(-17deg) translate(2px, -1px);
+  }
+  75% {
+    transform: rotate(-18.5deg) translate(-1px, 2px);
+  }
+}
+
+.sobbing-penguin {
+  animation: sobWobble 0.6s ease-in-out infinite;
+}
+
+/* Fountain Teardrops shooting into air */
+@keyframes tearArcPop1 {
+  0% {
+    transform: translate(-30px, -30px) scale(0.3);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-55px, -85px) scale(1.2);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-75px, -50px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-85px, -20px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes tearArcPop2 {
+  0% {
+    transform: translate(-20px, -40px) scale(0.3);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-30px, -115px) scale(1.3);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-40px, -70px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-45px, -30px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes tearArcPop3 {
+  0% {
+    transform: translate(15px, -30px) scale(0.3);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(35px, -100px) scale(1.2);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(50px, -60px) scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(60px, -20px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.drop-1 {
+  animation: tearArcPop1 1.2s ease-out infinite;
+}
+.drop-2 {
+  animation: tearArcPop2 1.4s ease-out 0.2s infinite;
+}
+.drop-3 {
+  animation: tearArcPop3 1.3s ease-out 0.4s infinite;
+}
+
+/* Tear stream pulse */
+@keyframes tearStreamPulse {
+  0%, 100% {
+    stroke-width: 6.5px;
+    opacity: 0.85;
+  }
+  50% {
+    stroke-width: 8px;
+    opacity: 1;
+  }
+}
+
+.tear-stream {
+  animation: tearStreamPulse 0.8s ease-in-out infinite;
+}
+
+/* Puddle Ripple */
+@keyframes puddleWave {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+.puddle-ripple {
+  transform-origin: 15px 95px;
+  animation: puddleWave 1.8s ease-in-out infinite;
+}
+
+/* Gift Penguins Sway */
+@keyframes giftSway1 {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2.5deg); }
+}
+@keyframes giftSway2 {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2deg); }
+}
+@keyframes giftSway3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.sway-1 { animation: giftSway1 2.4s ease-in-out infinite; transform-origin: 0 115px; }
+.sway-2 { animation: giftSway2 2.6s ease-in-out infinite 0.3s; transform-origin: 0 115px; }
+.sway-3 { animation: giftSway3 2.2s ease-in-out infinite 0.6s; }
+
+/* Duckling Bounce */
+@keyframes ducklingBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-4deg); }
+}
+
+.duckling-bounce {
+  animation: ducklingBob 2s ease-in-out infinite;
+}
+
+/* Cake Penguin Float */
+@keyframes cakePenguinFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.cake-penguin-float {
+  animation: cakePenguinFloat 2.8s ease-in-out infinite;
+}
+
+/* Candle flame flicker */
+@keyframes candleDance {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(-3deg);
+  }
+  75% {
+    transform: scale(0.95, 1.05) rotate(4deg);
+  }
+}
+
+.candle-flame-flicker {
+  transform-origin: 0 -32px;
+  animation: candleDance 0.5s ease-in-out infinite;
+}
+
+/* Smoke rising */
+@keyframes smokeCurling {
+  0% {
+    opacity: 0.9;
+    transform: translateY(0) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.4);
+  }
+}
+
+.candle-smoke-rise {
+  animation: smokeCurling 1.6s ease-out infinite;
+}
+
+/* Fade in page transitions */
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInAnim 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes wiggleAnim {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.animate-wiggle {
+  animation: wiggleAnim 2s ease-in-out infinite;
+}
+
+@keyframes pingSlow {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.animate-ping-slow {
+  animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}

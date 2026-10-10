@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { playHeartSpread } from '../utils/sound';
 
@@ -39,11 +41,11 @@ export default function PenguinHappy({ onSpreadComplete }) {
   ];
 
   return (
-    <div className="relative flex flex-col items-center justify-center select-none">
-      {/* SVG Container */}
+    <div className="relative flex flex-col items-center justify-center select-none my-0 py-0">
+      {/* SVG Container with slightly increased height */}
       <svg
-        viewBox="-160 -160 320 320"
-        className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 overflow-visible filter drop-shadow-sm"
+        viewBox="-120 -120 260 230"
+        className="w-72 h-72 sm:w-80 sm:h-80 md:w-92 md:h-92 overflow-visible filter drop-shadow-sm"
       >
         <defs>
           {/* Subtle gradient for body */}
@@ -149,14 +151,14 @@ export default function PenguinHappy({ onSpreadComplete }) {
             cx="0"
             cy="15"
             rx="56"
-            ry="45"
+            ry="48"
             fill="url(#penguinBodyGrad)"
             stroke="#3a2a1f"
             strokeWidth="4"
           />
 
           {/* White Belly Patch */}
-          <ellipse cx="0" cy="18" rx="42" ry="33" fill="#fcf9f2" />
+          <ellipse cx="0" cy="18" rx="42" ry="35" fill="#fcf9f2" />
 
           {/* Head & Dark Cap */}
           <path

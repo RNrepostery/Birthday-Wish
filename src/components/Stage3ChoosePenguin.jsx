@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import PenguinGift from './PenguinGift';
 import { playPop, playSparkle } from '../utils/sound';
 import { triggerConfetti } from '../utils/confetti';
+import { Button } from '@/components/ui/button';
 
 export default function Stage3ChoosePenguin({ onSelectPenguin1 }) {
   const [activeModal, setActiveModal] = useState(null);
@@ -38,7 +41,7 @@ export default function Stage3ChoosePenguin({ onSelectPenguin1 }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[90vh] py-6 px-4 text-center animate-fadeIn select-none">
+    <div className="flex flex-col items-center justify-center min-h-[90vh]  px-4 text-center animate-fadeIn select-none">
       {/* Title & Subtitle matching Image 3 */}
       <div className="mb-3 sm:mb-4">
         <h1 className="font-mali text-3xl sm:text-4xl md:text-5xl font-bold text-[#b71540] tracking-wide mb-1.5 drop-shadow-sm">
@@ -86,9 +89,9 @@ export default function Stage3ChoosePenguin({ onSelectPenguin1 }) {
         </div>
       </div>
 
-      <div className="mt-4 text-neutral-500 font-mali text-sm sm:text-base">
+      {/* <div className="mt-4 text-neutral-500 font-mali text-sm sm:text-base">
         💡 Tip: Select <span className="font-bold text-rose-600">Penguin #1</span> to unwrap the main birthday celebration!
-      </div>
+      </div> */}
 
       {/* Secret Note Modal for Penguins 2 & 3 */}
       {activeModal && (
@@ -102,21 +105,22 @@ export default function Stage3ChoosePenguin({ onSelectPenguin1 }) {
               {activeModal.text}
             </p>
             <div className="flex flex-col gap-2.5">
-              <button
+              <Button
                 onClick={() => {
                   closeModal();
                   handlePenguinClick(1);
                 }}
-                className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-fredoka font-bold rounded-xl shadow-md hover:opacity-95 transition-all text-base"
+                className="w-full h-auto py-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-fredoka font-bold rounded-xl shadow-md hover:opacity-95 transition-all text-base cursor-pointer"
               >
                 Go to Penguin #1's Birthday Party! 🎂
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={closeModal}
-                className="w-full py-2 bg-neutral-100 text-neutral-600 font-fredoka font-medium rounded-xl hover:bg-neutral-200 transition-all text-sm"
+                variant="secondary"
+                className="w-full h-auto py-2 bg-neutral-100 text-neutral-600 font-fredoka font-medium rounded-xl hover:bg-neutral-200 transition-all text-sm cursor-pointer"
               >
                 Close Note
-              </button>
+              </Button>
             </div>
           </div>
         </div>
